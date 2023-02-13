@@ -6,7 +6,7 @@
 /*   By: jebucoy <jebucoy@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/11 18:59:34 by jebucoy           #+#    #+#             */
-/*   Updated: 2023/02/12 18:16:25 by jebucoy          ###   ########.fr       */
+/*   Updated: 2023/02/13 16:33:45 by jebucoy          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,36 +23,42 @@
 
 // }
 
-t_stack	*create_new_node(char *av)
+//creates ONE node for each num
+t_stack	*create_new_node(char *nbr)
 {
 	t_stack	*new;
 
 	new = (t_stack *)malloc(sizeof(t_stack));
 	if (!new)
 		return (NULL);
-	new->num = ft_atoi(av);
+	new->num = ft_atoi(nbr);
 	new->next = NULL;
+	return (new);
 }
 
-t_stack	*init_stack_a(char **av)
+//returns the first node/ sets the value for the next nodes
+t_stack	*init_stack_a(char **nbrs)
 {
 	int		i;
-	t_stack	*a;
+	t_stack	*current;
 	t_stack	*head;
 
 	i = 1;
-	a = create_new_node(av[i]);
-	head = a;
-	while (av[i])
+	current = create_new_node(nbrs[i]);
+	head = current;
+	while (nbrs[++i])
 	{
-		a->next = create_new_node(av[i]);
-		a = a->next;
-		i++;
+		current->next = create_new_node(nbrs[i]);
+		current = current->next;
 	}
-	a = head;
-	return (a);
+	return (head);
 }
-
+/**
+ a     a->next
+---    ---
+|2| -> |3|
+---    ---
+**/
 
 int main(int ac, char **av) 
 {
@@ -60,29 +66,9 @@ int main(int ac, char **av)
 	int	i;
 
 	i = 0;
-	while (av[i])
+	if (ac > 2)
 	{
-		a = init_stack_a(av[i]);
-		printf("loop: %d\n", a);
+		a = init_stack_a(av);
 	}
 	return (0);
-
-	// a = (t_stack *)malloc(sizeof(t_stack));
-	// a->num = 0;
-	// a->next = NULL;
-	// head = a;
-	// for ( int i = 0; i < 3; i++ )
-	// {
-	// 	new = (t_stack *)malloc(sizeof(t_stack));
-	// 	new->num = i + 1;
-	// 	new->next = NULL;
-	// 	a->next = new;
-	// 	a = a->next;
-	// }
-	// a = head;
-	// while (a->next != NULL)
-	// {
-	// 	printf("node->n: %d\n", a->num);
-	// 	a = a->next;
-	// }
 }
