@@ -1,24 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jebucoy <jebucoy@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/11 18:28:22 by jebucoy           #+#    #+#             */
-/*   Updated: 2023/02/13 20:25:30 by jebucoy          ###   ########.fr       */
+/*   Created: 2022/05/23 19:11:54 by jebucoy           #+#    #+#             */
+/*   Updated: 2022/06/14 21:18:35 by jebucoy          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include "libft.h"
 
-# include "./libft/libft.h"
-
-typedef struct s_list
+void	ft_bzero(void *s, size_t n)
 {
-	int				num;
-	struct	s_stack	*next;
-}	t_list;
-
-#endif
+	ft_memset(s, '\0', n);
+}

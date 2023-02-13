@@ -6,7 +6,7 @@
 /*   By: jebucoy <jebucoy@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/11 18:59:34 by jebucoy           #+#    #+#             */
-/*   Updated: 2023/02/13 16:33:45 by jebucoy          ###   ########.fr       */
+/*   Updated: 2023/02/13 17:06:29 by jebucoy          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,15 +60,39 @@ t_stack	*init_stack_a(char **nbrs)
 ---    ---
 **/
 
+// current = 1;
+// c->next = 2;
+// current = 2;
+// c->next = 3;
+// current = 3;
+// c->next = NULL;
+
 int main(int ac, char **av) 
 {
-	t_stack *a;
-	int	i;
+	t_stack	*a;
+	t_stack	*head;
+	int		i;
 
 	i = 0;
 	if (ac > 2)
 	{
 		a = init_stack_a(av);
+		head = a;
+		while (a != NULL) //&& a->next != NULL)
+		{
+			printf("current: %d\n", a->num);
+			if (a->next != NULL)
+				printf("c->next: %d\n", a->next->num);
+			a = a->next;
+		}
+		a = head;
+		while (a != NULL)
+		{
+			printf("2_current: %d\n", a->num);
+			if (a->next != NULL)
+				printf("2_c->next: %d\n", a->next->num);
+			a = a->next;
+		}
 	}
 	return (0);
 }

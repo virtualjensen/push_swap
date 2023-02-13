@@ -6,7 +6,7 @@
 #    By: jebucoy <jebucoy@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/13 16:18:55 by jebucoy           #+#    #+#              #
-#    Updated: 2023/02/13 16:36:02 by jebucoy          ###   ########.fr        #
+#    Updated: 2023/02/13 16:41:08 by jebucoy          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ CC		=	cc
 
 SRCS	=	push_swap.c \
 
-OBJS	=	$(SRCS:.c = .o)
+OBJS	=	$(SRCS:.c=.o)
 
 all	: $(OBJS)
 	make -C ./libft
@@ -29,6 +29,10 @@ $(NAME)	: all
 clean	:
 		rm -rf $(OBJS) 
 		make clean -C ./libft
+
+fclean	: clean 
+		rm -rf $(NAME)
+		make fclean -C ./libft
 
 
 		

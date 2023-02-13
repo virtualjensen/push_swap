@@ -1,24 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jebucoy <jebucoy@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/11 18:28:22 by jebucoy           #+#    #+#             */
-/*   Updated: 2023/02/13 20:25:30 by jebucoy          ###   ########.fr       */
+/*   Created: 2022/05/23 18:34:17 by jebucoy           #+#    #+#             */
+/*   Updated: 2022/06/11 17:28:02 by jebucoy          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include "libft.h"
 
-# include "./libft/libft.h"
-
-typedef struct s_list
+void	*ft_memset(void *b, int c, size_t len)
 {
-	int				num;
-	struct	s_stack	*next;
-}	t_list;
+	char	*p;
 
-#endif
+	p = (char *)b;
+	while (len > 0)
+	{
+		p[len - 1] = c;
+		len--;
+	}
+	return (b);
+}
+
+// #include <stdio.h>
+// int main()
+// {
+// 	char b[] = "Morbussy Time";
+
+// 	printf("str = %s\n", b);
+// 	ft_memset(b, '*', 4);
+// 	printf("Calling memset\n %s\n", b);
+// }
