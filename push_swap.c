@@ -6,7 +6,7 @@
 /*   By: jebucoy <jebucoy@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/11 18:59:34 by jebucoy           #+#    #+#             */
-/*   Updated: 2023/02/13 17:06:29 by jebucoy          ###   ########.fr       */
+/*   Updated: 2023/02/16 23:04:42 by jebucoy          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,36 +23,7 @@
 
 // }
 
-//creates ONE node for each num
-t_stack	*create_new_node(char *nbr)
-{
-	t_stack	*new;
 
-	new = (t_stack *)malloc(sizeof(t_stack));
-	if (!new)
-		return (NULL);
-	new->num = ft_atoi(nbr);
-	new->next = NULL;
-	return (new);
-}
-
-//returns the first node/ sets the value for the next nodes
-t_stack	*init_stack_a(char **nbrs)
-{
-	int		i;
-	t_stack	*current;
-	t_stack	*head;
-
-	i = 1;
-	current = create_new_node(nbrs[i]);
-	head = current;
-	while (nbrs[++i])
-	{
-		current->next = create_new_node(nbrs[i]);
-		current = current->next;
-	}
-	return (head);
-}
 /**
  a     a->next
 ---    ---
@@ -67,32 +38,76 @@ t_stack	*init_stack_a(char **nbrs)
 // current = 3;
 // c->next = NULL;
 
-int main(int ac, char **av) 
-{
-	t_stack	*a;
-	t_stack	*head;
-	int		i;
+// void	print_a(t_stack a)
+// {
+// 	while(1)
+// 	{
+// 		printf("current: %d\n", a.num);
+// 		if (a.next != 0)
+// 			printf("next: %d\n", a.next->num);
+// 		a.num = -69;
+// 		if (a.next == NULL)
+// 			break ;
+// 		a = *(a.next);
+// 	}
+// }
 
-	i = 0;
-	if (ac > 2)
+void	debug_ps(t_data data)
+{
+	// print_a(*data.a);
+	while (data.a)
 	{
-		a = init_stack_a(av);
-		head = a;
-		while (a != NULL) //&& a->next != NULL)
-		{
-			printf("current: %d\n", a->num);
-			if (a->next != NULL)
-				printf("c->next: %d\n", a->next->num);
-			a = a->next;
-		}
-		a = head;
-		while (a != NULL)
-		{
-			printf("2_current: %d\n", a->num);
-			if (a->next != NULL)
-				printf("2_c->next: %d\n", a->next->num);
-			a = a->next;
-		}
+		printf("current: %d\n", data.a->num);
+		if (data.a->next != 0)
+			printf("next: %d\n", data.a->next->num);
+		data.a = data.a->next;
 	}
+}
+
+int	push_swap(char **av)
+{
+	t_data	*save;
+
+	save = init_struct(av);
+	debug_ps(*save);
+	debug_ps(*save);
 	return (0);
 }
+
+int main(int ac, char **av) 
+{
+	if (ac == 1)
+		return (0);
+	push_swap(av);
+	return (0);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	// while (a != NULL)
+	// {
+	// 	printf("current: %d\n", a->num);
+	// 	if (a->next != NULL)
+	// 		printf("c->next: %d\n", a->next->num);
+	// 	a = a->next;
+	// }
+	// a = head;
+	// while (a != NULL)
+	// {
+	// 	printf("2_current: %d\n", a->num);
+	// 	if (a->next != NULL)
+	// 		printf("2_c->next: %d\n", a->next->num);
+	// 	a = a->next;
+	// }
