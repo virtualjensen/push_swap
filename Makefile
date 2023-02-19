@@ -6,7 +6,7 @@
 #    By: jebucoy <jebucoy@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/13 16:18:55 by jebucoy           #+#    #+#              #
-#    Updated: 2023/02/17 20:31:17 by jebucoy          ###   ########.fr        #
+#    Updated: 2023/02/19 18:03:15 by jebucoy          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,9 @@ CC		=	cc
 SRCS	=	push_swap.c \
 			init_push_swap.c \
 			debug.c \
-			operations/moves1.c \
+			operations/swap_push.c \
+			operations/rotate.c \
+			operations/r_rotate.c \
 
 OBJS	=	$(SRCS:.c=.o)
 

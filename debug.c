@@ -6,7 +6,7 @@
 /*   By: jebucoy <jebucoy@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 23:06:17 by jebucoy           #+#    #+#             */
-/*   Updated: 2023/02/17 22:20:58 by jebucoy          ###   ########.fr       */
+/*   Updated: 2023/02/19 17:34:08 by jebucoy          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,9 +33,11 @@ void	debug_ps(t_data data)
 		printf("current A: %d\n", data.a->num);
 		data.a = data.a->next;
 	}
+	printf("-------A END-------\n\n");
 	while (data.b)
 	{
 		printf("current B: %d\n", data.b->num);
 		data.b = data.b->next;
 	}
+	printf("-------B END-------\n\n");
 }

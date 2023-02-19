@@ -6,7 +6,7 @@
 /*   By: jebucoy <jebucoy@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/11 18:28:22 by jebucoy           #+#    #+#             */
-/*   Updated: 2023/02/17 22:19:03 by jebucoy          ###   ########.fr       */
+/*   Updated: 2023/02/19 21:15:24 by jebucoy          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,14 @@ void	debug_ps(t_data data);
 void	swap_a(t_data *data, int flag);
 void	swap_b(t_data *data, int flag);
 void	sa_sb(t_data *data);
-void	push_a(t_data *data);
-void	push_b(t_data *data);
+void	push_to_a(t_data *data);
+void	push_to_b(t_data *data);
+t_stack	*ps_lstlast(t_stack *stack);
+void	rotate_a(t_data *data, int flag);
+void	rotate_b(t_data *data, int flag);
+void	ra_rb(t_data *data);
+void	r_rotate_a(t_data *data, int flag);
+void	r_rotate_b(t_data *data, int flag);
+t_stack	*lst_b4last(t_stack *stack);
+void	rrr(t_data *data);
 #endif
