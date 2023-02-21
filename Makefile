@@ -3,16 +3,16 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: jebucoy <jebucoy@student.42.fr>            +#+  +:+       +#+         #
+#    By: ommohame < ommohame@student.42abudhabi.ae> +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/13 16:18:55 by jebucoy           #+#    #+#              #
-#    Updated: 2023/02/19 18:03:15 by jebucoy          ###   ########.fr        #
+#    Updated: 2023/02/21 16:22:47 by ommohame         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME	=	push_swap
 
-CFLAGS	=	-Wall -Wextra -Werror -g -fsanitize=address 
+CFLAGS	=	-Wall -Wextra -Werror -g #-fsanitize=address 
 
 CC		=	cc
 
@@ -39,5 +39,6 @@ fclean	: clean
 		rm -rf $(NAME)
 		make fclean -C ./libft
 
+re	: fclean all	
 
 		

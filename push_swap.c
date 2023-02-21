@@ -6,7 +6,7 @@
 /*   By: ommohame < ommohame@student.42abudhabi.ae> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/11 18:59:34 by jebucoy           #+#    #+#             */
-/*   Updated: 2023/02/21 16:14:49 by ommohame         ###   ########.fr       */
+/*   Updated: 2023/02/21 16:24:33 by ommohame         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,7 @@ int	push_swap(char **av)
 	}
 	free_stack(data->a);
 	free_stack(data->b);
+	free(data);
 	// debug_ps(*data);
 	// push_to_b(data);
 	// push_to_b(data);

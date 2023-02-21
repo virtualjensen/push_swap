@@ -6,7 +6,7 @@
 /*   By: ommohame < ommohame@student.42abudhabi.ae> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 22:22:25 by jebucoy           #+#    #+#             */
-/*   Updated: 2023/02/21 16:12:24 by ommohame         ###   ########.fr       */
+/*   Updated: 2023/02/21 16:47:20 by ommohame         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ void	free_stack(t_stack *stack)
 
 	if (!stack)
 		return ;
-	while (stack->next)
+	while (stack)
 	{
 		tmp = stack;
 		stack = stack->next;
