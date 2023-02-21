@@ -17,13 +17,13 @@ int	push_swap(char **av)
 	t_data	*data;
 
 	data = init_struct(av);
-	// debug_ps(*data);
-	// push_to_b(data);
-	// push_to_b(data);
-	// push_to_b(data);
-	// debug_ps(*data);
+	debug_ps(*data);
+	push_to_b(data);
+	push_to_b(data);
+	push_to_b(data);
+	debug_ps(*data);
 	r_rotate_b(data, 1);
-	// debug_ps(*data);
+	debug_ps(*data);
 	return (0);
 }
 
