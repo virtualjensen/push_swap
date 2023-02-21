@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init_push_swap.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jebucoy <jebucoy@student.42.fr>            +#+  +:+       +#+        */
+/*   By: ommohame < ommohame@student.42abudhabi.ae> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 22:22:25 by jebucoy           #+#    #+#             */
-/*   Updated: 2023/02/17 17:45:57 by jebucoy          ###   ########.fr       */
+/*   Updated: 2023/02/21 16:12:24 by ommohame         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,20 @@ static t_stack	*init_stack_a(char **nbrs)
 		current = current->next;
 	}
 	return (head);
+}
+
+void	free_stack(t_stack *stack)
+{
+	t_stack	*tmp;
+
+	if (!stack)
+		return ;
+	while (stack->next)
+	{
+		tmp = stack;
+		stack = stack->next;
+		free(tmp);
+	}
 }
 
 //initialize the structures

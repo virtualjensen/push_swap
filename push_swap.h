@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jebucoy <jebucoy@student.42.fr>            +#+  +:+       +#+        */
+/*   By: ommohame < ommohame@student.42abudhabi.ae> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/11 18:28:22 by jebucoy           #+#    #+#             */
-/*   Updated: 2023/02/19 21:15:24 by jebucoy          ###   ########.fr       */
+/*   Updated: 2023/02/21 16:10:33 by ommohame         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,4 +46,5 @@ void	r_rotate_a(t_data *data, int flag);
 void	r_rotate_b(t_data *data, int flag);
 t_stack	*lst_b4last(t_stack *stack);
 void	rrr(t_data *data);
+void	free_stack(t_stack *stack);
 #endif

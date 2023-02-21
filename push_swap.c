@@ -3,27 +3,73 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jebucoy <jebucoy@student.42.fr>            +#+  +:+       +#+        */
+/*   By: ommohame < ommohame@student.42abudhabi.ae> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/11 18:59:34 by jebucoy           #+#    #+#             */
-/*   Updated: 2023/02/19 21:43:32 by jebucoy          ###   ########.fr       */
+/*   Updated: 2023/02/21 16:14:49 by ommohame         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+int	ft_strcmp(const char *s1, const char *s2)
+{
+	int	i;
+
+	i = 0;
+	while (s1[i] == s2[i] && s1[i] != '\0' && s2[i] != '\0')
+		i++;
+	return ((unsigned char)s1[i] - (unsigned char)s2[i]);
+}
 
 int	push_swap(char **av)
 {
 	t_data	*data;
 
 	data = init_struct(av);
-	debug_ps(*data);
-	push_to_b(data);
-	push_to_b(data);
-	push_to_b(data);
-	debug_ps(*data);
-	r_rotate_b(data, 1);
-	debug_ps(*data);
+	char	line[256];
+	while (1) {
+		scanf("%255[^\n]%*c",line);
+		if (ft_strcmp(line, "sa") == 0)
+			swap_a(data, 1);
+		else if (ft_strcmp(line, "sb") == 0)
+			swap_b(data, 1);
+		else if (ft_strcmp(line, "ss") == 0)
+			sa_sb(data);
+		else if (ft_strcmp(line, "pa") == 0)
+			push_to_a(data);
+		else if (ft_strcmp(line, "pb") == 0)
+			push_to_b(data);
+		else if (ft_strcmp(line, "ra") == 0)
+			rotate_a(data, 1);
+		else if (ft_strcmp(line, "rb") == 0)
+			rotate_b(data, 1);
+		else if (ft_strcmp(line, "rr") == 0)
+			ra_rb(data);
+		else if (ft_strcmp(line, "rra") == 0)
+			r_rotate_a(data, 1);
+		else if (ft_strcmp(line, "rrb") == 0)
+			r_rotate_b(data, 1);
+		else if (ft_strcmp(line, "rrr") == 0)
+			rrr(data);
+		else if (ft_strcmp(line, "exit") == 0)
+			break ;
+		debug_ps(*data);
+	}
+	free_stack(data->a);
+	free_stack(data->b);
+	// debug_ps(*data);
+	// push_to_b(data);
+	// push_to_b(data);
+	// debug_ps(*data);
+	// // push_to_a(data);
+	// // debug_ps(*data);
+	// r_rotate_b(data, 1);
+	// debug_ps(*data);
+	// r_rotate_a(data, 1);
+	// debug_ps(*data);
+	// rrr(*data);
+	// debug_ps(*data);
 	return (0);
 }
 

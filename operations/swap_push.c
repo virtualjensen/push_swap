@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   swap_push.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jebucoy <jebucoy@student.42.fr>            +#+  +:+       +#+        */
+/*   By: ommohame < ommohame@student.42abudhabi.ae> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/13 17:59:49 by jebucoy           #+#    #+#             */
-/*   Updated: 2023/02/19 21:37:57 by jebucoy          ###   ########.fr       */
+/*   Updated: 2023/02/21 15:54:00 by ommohame         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,10 +68,13 @@ void	push_to_a(t_data *data)
 	t_stack	*tmp_a;
 	t_stack	*tmp_b_nxt;
 
-	if (!data->a || !data->b)
+	if (!data->a)
 		return ;
 	tmp_a = data->a;
-	tmp_b_nxt = data->b->next;
+	if (data->b)
+		tmp_b_nxt = data->b->next;
+	else
+		tmp_b_nxt = NULL;
 	data->a = data->head_b;
 	data->head_a = data->a;
 	data->a->next = tmp_a;
@@ -86,10 +89,13 @@ void	push_to_b(t_data *data)
 	t_stack	*tmp_b;
 	t_stack	*tmp_a_nxt;
 
-	if (!data->a || !data->b)
+	if (!data->a)
 		return ;
 	tmp_b = data->b;
-	tmp_a_nxt = data->a->next;
+	if (data->a)
+		tmp_a_nxt = data->a->next;
+	else
+		tmp_a_nxt = NULL;
 	data->b = data->head_a;
 	data->head_b = data->b;
 	data->b->next = tmp_b;
