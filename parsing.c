@@ -17,13 +17,21 @@ void	check_invalid_arg(char **av)
 	int	s;
 	int	c;
 
-	s = 0;
+	s = 1;
 	c = 0;
 	while (av[s])
 	{
+		c = 0;
 		while(av[s][c])
 		{
-			if (!ft_isdigit(c) || av[s][c] != ' ')
+			if ((!ft_isdigit(av[s][c]) && av[s][c] != ' ' && av[s][c] != '-')
+				|| (av[s][c] == '-' && !ft_isdigit(av[s][c + 1])))
+			{
+				ft_putendl_fd("Invalid Arguments", 2);
+				exit(EXIT_FAILURE);
+			}
+			c++;
 		}
+		s++;
 	}
 }

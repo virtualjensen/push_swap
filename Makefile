@@ -22,6 +22,7 @@ SRCS	=	push_swap.c \
 			operations/swap_push.c \
 			operations/rotate.c \
 			operations/r_rotate.c \
+			parsing.c \
 
 OBJS	=	$(SRCS:.c=.o)
 

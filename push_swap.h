@@ -14,12 +14,14 @@
 # define PUSH_SWAP_H
 
 # include "./libft/libft.h"
+#include <limits.h>
 #include <stdio.h>
 #include <stdlib.h>
 
+
 typedef struct s_stack
 {
-	int				num;
+	ssize_t			num;
 	int				index;
 	struct	s_stack	*next;
 }	t_stack;
@@ -48,4 +50,5 @@ void	r_rotate_b(t_data *data, int flag);
 t_stack	*lst_b4last(t_stack *stack);
 void	rrr(t_data *data);
 void	free_stack(t_stack *stack);
+void	check_invalid_arg(char **av);
 #endif

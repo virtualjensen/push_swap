@@ -78,6 +78,7 @@ int	main(int ac, char **av)
 {
 	if (ac == 1)
 		return (0);
+	check_invalid_arg(av);
 	push_swap(av);
 	return (0);
 }
