@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   swap_push.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ommohame < ommohame@student.42abudhabi.ae> +#+  +:+       +#+        */
+/*   By: jebucoy <jebucoy@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/13 17:59:49 by jebucoy           #+#    #+#             */
-/*   Updated: 2023/02/21 15:54:00 by ommohame         ###   ########.fr       */
+/*   Updated: 2023/02/25 17:54:06 by jebucoy          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ void	push_to_a(t_data *data)
 	t_stack	*tmp_a;
 	t_stack	*tmp_b_nxt;
 
-	if (!data->a)
+	if (!data->b)
 		return ;
 	tmp_a = data->a;
 	if (data->b)

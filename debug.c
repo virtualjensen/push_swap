@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   debug.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ommohame < ommohame@student.42abudhabi.ae> +#+  +:+       +#+        */
+/*   By: jebucoy <jebucoy@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 23:06:17 by jebucoy           #+#    #+#             */
-/*   Updated: 2023/02/21 15:42:07 by ommohame         ###   ########.fr       */
+/*   Updated: 2023/02/25 17:52:58 by jebucoy          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,14 +32,14 @@ void	debug_ps(t_data data)
 	printf("-------A START-------\n");
 	while (data.a)
 	{
-		printf("current A: %d\n", data.a->num);
+		printf("current A: %zd\n", data.a->num);
 		data.a = data.a->next;
 	}
 	printf("-------A END-------\n");
 	printf("-------B START-----\n");
 	while (data.b)
 	{
-		printf("current B: %d\n", data.b->num);
+		printf("current B: %zd\n", data.b->num);
 		data.b = data.b->next;
 	}
 	printf("-------B END-------\n\n");

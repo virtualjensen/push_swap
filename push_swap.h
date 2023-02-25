@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ommohame < ommohame@student.42abudhabi.ae> +#+  +:+       +#+        */
+/*   By: jebucoy <jebucoy@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/11 18:28:22 by jebucoy           #+#    #+#             */
-/*   Updated: 2023/02/21 17:19:28 by ommohame         ###   ########.fr       */
+/*   Updated: 2023/02/25 18:23:01 by jebucoy          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,24 +14,23 @@
 # define PUSH_SWAP_H
 
 # include "./libft/libft.h"
-#include <limits.h>
-#include <stdio.h>
-#include <stdlib.h>
-
+# include <limits.h>
+# include <stdio.h>
+# include <stdlib.h>
 
 typedef struct s_stack
 {
 	ssize_t			num;
 	int				index;
-	struct	s_stack	*next;
+	struct s_stack	*next;
 }	t_stack;
 
 typedef struct s_data
 {
 	t_stack	*head_a;
-	t_stack *head_b;
-	t_stack *a;
-	t_stack *b;
+	t_stack	*head_b;
+	t_stack	*a;
+	t_stack	*b;
 }	t_data;
 
 t_data	*init_struct(char **nbrs);
@@ -51,4 +50,5 @@ t_stack	*lst_b4last(t_stack *stack);
 void	rrr(t_data *data);
 void	free_stack(t_stack *stack);
 void	check_invalid_arg(char **av);
+ssize_t	ps_atoss(const char *str);
 #endif

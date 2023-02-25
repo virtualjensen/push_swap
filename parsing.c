@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ommohame < ommohame@student.42abudhabi.ae> +#+  +:+       +#+        */
+/*   By: jebucoy <jebucoy@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/12 14:50:07 by jebucoy           #+#    #+#             */
-/*   Updated: 2023/02/21 18:44:46 by ommohame         ###   ########.fr       */
+/*   Updated: 2023/02/25 18:12:23 by jebucoy          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	check_invalid_arg(char **av)
 	while (av[s])
 	{
 		c = 0;
-		while(av[s][c])
+		while (av[s][c])
 		{
 			if ((!ft_isdigit(av[s][c]) && av[s][c] != ' ' && av[s][c] != '-')
 				|| (av[s][c] == '-' && !ft_isdigit(av[s][c + 1])))
@@ -35,3 +35,8 @@ void	check_invalid_arg(char **av)
 		s++;
 	}
 }
+
+// void	get_args(char **av)
+// {
+	
+// }

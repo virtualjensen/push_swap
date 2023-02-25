@@ -6,25 +6,11 @@
 /*   By: jebucoy <jebucoy@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/19 17:35:04 by jebucoy           #+#    #+#             */
-/*   Updated: 2023/02/19 21:36:39 by jebucoy          ###   ########.fr       */
+/*   Updated: 2023/02/25 18:40:15 by jebucoy          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
-
-t_stack	*ps_lstlast(t_stack *stack)
-{
-	t_stack	*ret;
-
-	if (!stack)
-		return (NULL);
-	ret = stack;
-	while (ret->next)
-	{
-		ret = ret->next;
-	}
-	return (ret);
-}
 
 //shift up all of elements in stack A by one, first element will be last.
 void	rotate_a(t_data *data, int flag)
