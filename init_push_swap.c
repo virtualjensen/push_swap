@@ -30,6 +30,19 @@ static t_stack	*create_new_node(char *nbr)
 	return (new);
 }
 
+void	free_2d(char **av)
+{
+	size_t	i;
+
+	i = 0;
+	while (av[i])
+	{
+		free(av[i]);
+		i++;
+	}
+	free(av);
+}
+
 //returns the first node/ sets the value for the next nodes
 static t_stack	*init_stack_a(char **nbrs)
 {
@@ -37,7 +50,7 @@ static t_stack	*init_stack_a(char **nbrs)
 	t_stack	*current;
 	t_stack	*head;
 
-	i = 1;
+	i = 0;
 	current = create_new_node(nbrs[i]);
 	head = current;
 	while (nbrs[++i])
@@ -73,6 +86,7 @@ t_data	*init_struct(char **nbrs)
 	data = (t_data *)malloc(sizeof(t_data));
 	if (!data)
 		return (NULL);
+	printf("aaa\n");
 	while (nbrs[i])
 	{
 		split_arg = ft_split(nbrs[i], ' ');
@@ -85,8 +99,10 @@ t_data	*init_struct(char **nbrs)
 			data->a = init_stack_a(split_arg);
 			data->head_a = data->a;
 		}
+		free_2d(split_arg);
 		i++;
 	}
+	printf("aaa\n");
 	data->b = NULL;
 	data->head_b = NULL;
 	return (data);
