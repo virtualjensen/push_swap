@@ -53,3 +53,18 @@ t_stack	*ps_lstlast(t_stack *stack)
 	}
 	return (ret);
 }
+
+ssize_t	ps_lst_size(t_stack *stack)
+{
+	ssize_t	i;
+
+	i = 0;
+	if (!stack)
+		return (0);
+	while (stack)
+	{
+		stack = stack->next;
+		i++;
+	}
+	return (i);	
+}

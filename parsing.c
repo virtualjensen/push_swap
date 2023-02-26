@@ -12,6 +12,7 @@
 
 #include "push_swap.h"
 
+//checks for non-integers in the argument
 void	check_invalid_arg(char **av)
 {
 	int	s;
@@ -27,7 +28,7 @@ void	check_invalid_arg(char **av)
 			if ((!ft_isdigit(av[s][c]) && av[s][c] != ' ' && av[s][c] != '-')
 				|| (av[s][c] == '-' && !ft_isdigit(av[s][c + 1])))
 			{
-				ft_putendl_fd("Invalid Arguments", 2);
+				ft_putendl_fd("ERROR: Invalid Arguments", 2);
 				exit(EXIT_FAILURE);
 			}
 			c++;
@@ -36,7 +37,36 @@ void	check_invalid_arg(char **av)
 	}
 }
 
-// void	get_args(char **av)
-// {
-	
-// }
+//checks if args are pre-sorted, if sorted, returns true
+int	check_sort(t_stack *stack)
+{
+	t_stack *cur;
+
+	cur = stack;
+	if (!stack)
+		return (0);
+	while (cur->next)
+	{
+		if (cur->num > cur->next->num)
+			return (false);
+		cur = cur->next;
+	}
+	return (true);
+}
+
+int	check_dup(t_stack *stack)
+{
+	t_stack	*head;
+	t_stack	*tmp;
+
+	head = stack;
+	tmp = stack;
+	if (!stack)
+		return ;
+	while (tmp)
+	{
+		if (head->num == head->next->num)
+			return (false);
+	}
+}
+

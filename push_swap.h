@@ -17,6 +17,8 @@
 # include <limits.h>
 # include <stdio.h>
 # include <stdlib.h>
+# include <stdbool.h>
+
 
 typedef struct s_stack
 {
@@ -51,4 +53,6 @@ void	rrr(t_data *data);
 void	free_stack(t_stack *stack);
 void	check_invalid_arg(char **av);
 ssize_t	ps_atoss(const char *str);
+ssize_t	ps_lst_size(t_stack *stack);
+int		check_sort(t_stack *stack);
 #endif

@@ -27,6 +27,12 @@ int	push_swap(char **av)
 	t_data	*data;
 
 	data = init_struct(av);
+	printf("list size: %zd\n", ps_lst_size(data->a));
+	if (check_sort(data->a) == true)
+	{
+		printf("ERROR: Args already sorted\n");
+		exit (0);
+	}
 	char	line[256];
 	while (1) {
 		scanf("%255[^\n]%*c",line);
@@ -59,18 +65,6 @@ int	push_swap(char **av)
 	free_stack(data->a);
 	free_stack(data->b);
 	free(data);
-	// debug_ps(*data);
-	// push_to_b(data);
-	// push_to_b(data);
-	// debug_ps(*data);
-	// // push_to_a(data);
-	// // debug_ps(*data);
-	// r_rotate_b(data, 1);
-	// debug_ps(*data);
-	// r_rotate_a(data, 1);
-	// debug_ps(*data);
-	// rrr(*data);
-	// debug_ps(*data);
 	return (0);
 }
 
@@ -82,7 +76,3 @@ int	main(int ac, char **av)
 	push_swap(av);
 	return (0);
 }
-
-	// printf("last node: %d\n", ps_lstlast(save->a)->num);
-	// printf("last node: %d\n", (save->a)->num);
-	// printf("node value: %d\n", save->a->num);
