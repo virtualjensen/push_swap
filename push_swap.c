@@ -33,6 +33,11 @@ int	push_swap(char **av)
 		printf("ERROR: Args already sorted\n");
 		exit (0);
 	}
+	if (check_dup(data->a) == false)
+	{
+		printf("ERROR: Duplicates in argument\n");
+		exit (0);
+	}
 	char	line[256];
 	while (1) {
 		scanf("%255[^\n]%*c",line);

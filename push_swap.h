@@ -55,4 +55,5 @@ void	check_invalid_arg(char **av);
 ssize_t	ps_atoss(const char *str);
 ssize_t	ps_lst_size(t_stack *stack);
 int		check_sort(t_stack *stack);
+int	check_dup(t_stack *stack);
 #endif

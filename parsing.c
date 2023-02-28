@@ -62,11 +62,19 @@ int	check_dup(t_stack *stack)
 	head = stack;
 	tmp = stack;
 	if (!stack)
-		return ;
-	while (tmp)
+		return (0);
+	while (head)
 	{
-		if (head->num == head->next->num)
-			return (false);
+		while(tmp->next)
+		{
+			if (head->num == tmp->next->num)
+			{
+				return (false);
+			}
+			tmp->next = tmp->next->next;
+		}
+		head = head->next;
 	}
+	return (true);
 }
 
