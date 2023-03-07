@@ -6,14 +6,14 @@
 /*   By: jebucoy <jebucoy@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/12 14:50:07 by jebucoy           #+#    #+#             */
-/*   Updated: 2023/03/07 18:08:02 by jebucoy          ###   ########.fr       */
+/*   Updated: 2023/03/07 19:31:11 by jebucoy          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-//checks for non-integers in the argument
-void	check_invalid_arg(char **av)
+//checks for non-integers in the argument, if there is, return true
+int	check_invalid_arg(char **av)
 {
 	int	s;
 	int	c;
@@ -28,17 +28,17 @@ void	check_invalid_arg(char **av)
 			if ((!ft_isdigit(av[s][c]) && av[s][c] != ' ' && av[s][c] != '-')
 				|| (av[s][c] == '-' && !ft_isdigit(av[s][c + 1])))
 			{
-				ft_putendl_fd("ERROR: Invalid Arguments", 2);
-				exit(EXIT_FAILURE);
+				return (true);
 			}
 			c++;
 		}
 		s++;
 	}
+	return (false);
 }
 
 //checks if args are pre-sorted, if sorted, returns true
-int	check_sort(t_stack *stack)
+int	check_if_sort(t_stack *stack)
 {
 	t_stack *cur;
 
@@ -54,7 +54,8 @@ int	check_sort(t_stack *stack)
 	return (true);
 }
 
-int	check_dup(t_stack *stack)
+//checks for duplicates. if there are, return true
+int	check_if_dup(t_stack *stack)
 {
 	t_stack	*head;
 	t_stack	*tmp;
