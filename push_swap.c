@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ommohame < ommohame@student.42abudhabi.ae> +#+  +:+       +#+        */
+/*   By: jebucoy <jebucoy@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/11 18:59:34 by jebucoy           #+#    #+#             */
-/*   Updated: 2023/02/21 16:24:33 by ommohame         ###   ########.fr       */
+/*   Updated: 2023/03/07 17:10:08 by jebucoy          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ int	push_swap(char **av)
 		printf("ERROR: Args already sorted\n");
 		exit (0);
 	}
-	if (check_dup(data->a) == false)
+	if (check_dup(data->a) == true)
 	{
 		printf("ERROR: Duplicates in argument\n");
 		exit (0);

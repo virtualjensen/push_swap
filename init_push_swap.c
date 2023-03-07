@@ -6,7 +6,7 @@
 /*   By: jebucoy <jebucoy@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 22:22:25 by jebucoy           #+#    #+#             */
-/*   Updated: 2023/02/25 18:47:21 by jebucoy          ###   ########.fr       */
+/*   Updated: 2023/03/07 11:50:47 by jebucoy          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,7 +86,6 @@ t_data	*init_struct(char **nbrs)
 	data = (t_data *)malloc(sizeof(t_data));
 	if (!data)
 		return (NULL);
-	printf("aaa\n");
 	while (nbrs[i])
 	{
 		split_arg = ft_split(nbrs[i], ' ');
@@ -102,7 +101,6 @@ t_data	*init_struct(char **nbrs)
 		free_2d(split_arg);
 		i++;
 	}
-	printf("aaa\n");
 	data->b = NULL;
 	data->head_b = NULL;
 	return (data);

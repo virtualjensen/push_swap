@@ -6,7 +6,7 @@
 /*   By: jebucoy <jebucoy@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/12 14:50:07 by jebucoy           #+#    #+#             */
-/*   Updated: 2023/02/25 18:12:23 by jebucoy          ###   ########.fr       */
+/*   Updated: 2023/03/07 18:08:02 by jebucoy          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,21 +60,23 @@ int	check_dup(t_stack *stack)
 	t_stack	*tmp;
 
 	head = stack;
-	tmp = stack;
 	if (!stack)
 		return (0);
 	while (head)
 	{
-		while(tmp->next)
+		tmp = head->next;
+		while(tmp)
 		{
-			if (head->num == tmp->next->num)
+			printf("head: %zd ", head->num);
+			printf("head->next: %zd\n", head->next->num);
+			if (head->num == tmp->num)
 			{
-				return (false);
+				return (true);
 			}
-			tmp->next = tmp->next->next;
+			tmp = tmp->next;
 		}
 		head = head->next;
 	}
-	return (true);
+	return (false);
 }
 
