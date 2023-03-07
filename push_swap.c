@@ -42,7 +42,7 @@ int	push_swap(char **av)
 	t_data	*data;
 
 	data = init_struct(av);
-	if (parser == true)
+	if (parser(data->a) == true)
 	{ 
 		char	line[256];
 		while (1)
