@@ -3,16 +3,16 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: jebucoy <jebucoy@student.42.fr>            +#+  +:+       +#+         #
+#    By: jebucoy <jebucoy@student.42abudhabi.ae>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/13 16:18:55 by jebucoy           #+#    #+#              #
-#    Updated: 2023/02/25 18:05:39 by jebucoy          ###   ########.fr        #
+#    Updated: 2023/03/13 17:11:43 by jebucoy          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME	=	push_swap
 
-CFLAGS	=	-Wall -Wextra -Werror -g -fsanitize=address 
+CFLAGS	=	-Wall -Wextra -Werror -g #-fsanitize=address 
 
 CC		=	cc
 
@@ -24,6 +24,7 @@ SRCS	=	push_swap.c \
 			operations/r_rotate.c \
 			parsing.c \
 			utils.c \
+			algorithm.c \
 
 OBJS	=	$(SRCS:.c=.o)
 

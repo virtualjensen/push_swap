@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jebucoy <jebucoy@student.42.fr>            +#+  +:+       +#+        */
+/*   By: jebucoy <jebucoy@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/11 18:28:22 by jebucoy           #+#    #+#             */
-/*   Updated: 2023/03/07 19:08:24 by jebucoy          ###   ########.fr       */
+/*   Updated: 2023/03/13 17:10:34 by jebucoy          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,4 +56,6 @@ ssize_t	ps_atoss(const char *str);
 ssize_t	ps_lst_size(t_stack *stack);
 int		check_if_sort(t_stack *stack);
 int		check_if_dup(t_stack *stack);
+void	sort_2(t_data *data);
+void	sort_3(t_data *data);
 #endif

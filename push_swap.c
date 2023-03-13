@@ -3,27 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jebucoy <jebucoy@student.42.fr>            +#+  +:+       +#+        */
+/*   By: jebucoy <jebucoy@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/11 18:59:34 by jebucoy           #+#    #+#             */
-/*   Updated: 2023/03/07 20:14:35 by jebucoy          ###   ########.fr       */
+/*   Updated: 2023/03/13 17:09:59 by jebucoy          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-void	algorithm(t_data *data)
-{
-	while (data->a)
-	{
-		printf("stack a: %zd\n", data->a->num);
-		data->a = data->a->next;
-	}
-	// if (ps_lst_size(data->a) == 2 && data->a->num > data->a->next->num)
-	// {
-	// 	rotate_a(data->a, 1);
-	// }
-}
 
 int	ft_strcmp(const char *s1, const char *s2)
 {
@@ -62,7 +49,7 @@ int	push_swap(char **av)
 	data = init_struct(av);
 	if (parser(data->a, av) == true)
 	{
-		algorithm(data);
+		sort_3(data);
 	}
 	free_stack(data->a);
 	free_stack(data->b);
