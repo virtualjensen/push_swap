@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jebucoy <jebucoy@student.42.fr>            +#+  +:+       +#+        */
+/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/12 14:50:07 by jebucoy           #+#    #+#             */
-/*   Updated: 2023/03/07 19:31:11 by jebucoy          ###   ########.fr       */
+/*   Updated: 2023/03/16 15:50:54 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,8 +68,8 @@ int	check_if_dup(t_stack *stack)
 		tmp = head->next;
 		while(tmp)
 		{
-			printf("head: %zd ", head->num);
-			printf("head->next: %zd\n", head->next->num);
+			// printf("head: %zd ", head->num);
+			// printf("head->next: %zd\n", head->next->num);
 			if (head->num == tmp->num)
 			{
 				return (true);

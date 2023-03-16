@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jebucoy <jebucoy@student.42abudhabi.ae>    +#+  +:+       +#+        */
+/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/11 18:28:22 by jebucoy           #+#    #+#             */
-/*   Updated: 2023/03/13 17:10:34 by jebucoy          ###   ########.fr       */
+/*   Updated: 2023/03/16 15:11:28 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@
 typedef struct s_stack
 {
 	ssize_t			num;
-	int				index;
+	ssize_t			index;
 	struct s_stack	*next;
 }	t_stack;
 
@@ -58,4 +58,6 @@ int		check_if_sort(t_stack *stack);
 int		check_if_dup(t_stack *stack);
 void	sort_2(t_data *data);
 void	sort_3(t_data *data);
+void	get_index(t_data *data);
+void	sort_100(t_data *data);
 #endif

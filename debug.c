@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   debug.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jebucoy <jebucoy@student.42abudhabi.ae>    +#+  +:+       +#+        */
+/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 23:06:17 by jebucoy           #+#    #+#             */
-/*   Updated: 2023/03/13 19:21:55 by jebucoy          ###   ########.fr       */
+/*   Updated: 2023/03/16 14:32:17 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ void	debug_ps(t_data data)
 	while (data.a)
 	{
 		printf("current A: %zd\n", data.a->num);
+		printf("min index: %zd\n", data.a->index);
 		data.a = data.a->next;
 	}
 	printf("-------A END-------\n");

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init_push_swap.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jebucoy <jebucoy@student.42.fr>            +#+  +:+       +#+        */
+/*   By: jebucoy <jebucoy@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 22:22:25 by jebucoy           #+#    #+#             */
-/*   Updated: 2023/03/07 11:50:47 by jebucoy          ###   ########.fr       */
+/*   Updated: 2023/03/15 15:36:02 by jebucoy          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ static t_stack	*create_new_node(char *nbr)
 	new = (t_stack *)malloc(sizeof(t_stack));
 	if (!new)
 		return (NULL);
+	new->index = -1;
 	new->num = ps_atoss(nbr);
 	if (new->num > INT_MAX || new->num < INT_MIN)
 	{

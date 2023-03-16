@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jebucoy <jebucoy@student.42abudhabi.ae>    +#+  +:+       +#+        */
+/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/11 18:59:34 by jebucoy           #+#    #+#             */
-/*   Updated: 2023/03/13 17:09:59 by jebucoy          ###   ########.fr       */
+/*   Updated: 2023/03/16 15:53:45 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,12 @@ int	push_swap(char **av)
 	data = init_struct(av);
 	if (parser(data->a, av) == true)
 	{
-		sort_3(data);
+	get_index(data);
+		// if (ps_lst_size(data->a) == 2)
+		// 	sort_2(data);
+		// if (ps_lst_size(data->a) == 3)
+		// 	sort_3(data);
+		sort_100(data);
 	}
 	free_stack(data->a);
 	free_stack(data->b);
@@ -64,3 +69,5 @@ int	main(int ac, char **av)
 	push_swap(av);
 	return (0);
 }
+
+//9 29 21 75 26 37 82 24 55 80 36 96 31 81 28 20 39 2 45 92 58 95 77 88 27 51 16 44 47 94 90 71 79 11 83 3 60 78 66 59 25 86 49 7 33 19 46 87 6 63 12 52 97 69 64 32 76 89 93 41 17 68 14 1 38 22 57 74 35 99 67 73 5 18 34 62 85 13 43 72 98 100 65 23 70 30 42 10 15 4 53 91 48 84 56 61 54 40 8 50

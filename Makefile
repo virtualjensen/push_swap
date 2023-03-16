@@ -3,16 +3,16 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: jebucoy <jebucoy@student.42abudhabi.ae>    +#+  +:+       +#+         #
+#    By: codespace <codespace@student.42.fr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/13 16:18:55 by jebucoy           #+#    #+#              #
-#    Updated: 2023/03/13 17:11:43 by jebucoy          ###   ########.fr        #
+#    Updated: 2023/03/16 14:35:46 by codespace        ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME	=	push_swap
 
-CFLAGS	=	-Wall -Wextra -Werror -g #-fsanitize=address 
+CFLAGS	=	-Wall -Wextra -Werror -g -fsanitize=address 
 
 CC		=	cc
 
