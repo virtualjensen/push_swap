@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   algorithm.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jebucoy <jebucoy@student.42abudhabi.ae>    +#+  +:+       +#+        */
+/*   By: jebucoy <jebucoy@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/13 12:46:10 by jebucoy           #+#    #+#             */
-/*   Updated: 2023/03/21 14:37:59 by jebucoy          ###   ########.fr       */
+/*   Updated: 2023/03/23 17:48:05 by jebucoy          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,98 +43,74 @@ void	sort_3(t_data *data)
 	}
 	else if (node_1->num < node_2->num && node_1->num > node_3->num)
 		r_rotate_a(data, 1);
-	// debug_ps(*data);
 }
 
-t_stack	*get_min(t_data *data)
+void	chunky_sort(t_data *data, ssize_t chunk_size)
 {
-	t_stack *stack;
-	t_stack *current;
-	ssize_t min_num;
-	
-	stack = data->a;
-	current = stack;
-	min_num = INT_MAX;
-	while (stack)
-	{
-		if (stack->num < min_num && stack->index == -1)
-		{
-			current = stack;
-			min_num = current->num;
-		}
-		stack = stack->next;
-	}
-	return (current);
-}
-
-void get_index(t_data *data)
-{
-	ssize_t i;
-	t_stack *min;
-	ssize_t len;
-
-	i = 0;
-	len = ps_lst_size(data->a);
-	while (i < len)
-	{
-		min = get_min(data);
-		min->index = i;
-		i++;
-	}
-}
-
-void	check_chunk(t_data *data, ssize_t chunk_size)
-{
-	t_stack *stack;
-	t_stack	*store_top;
-	t_stack	*store_bottom;
-
-	stack = data->a;
-	if (stack->index <= chunk_size)
-	{
-		
-	}
-	
-		
-}
-
-void	sort_100(t_data *data)
-{
-	ssize_t	i;
+	ssize_t chunk_index;
+	ssize_t counter;
 	t_stack *tmp;
 
-	i = 0;
+	chunk_index = 0;
 	tmp = data->a;
+	counter = 0;
 	while (ps_lst_size(tmp) != 0)
 	{
 		while (tmp)
 		{
-			if (tmp->index == i)
+			if (check_chunk(tmp->index, chunk_size, chunk_index))
 			{
 				push_to_b(data);
-				i++;
+				tmp = data->a;
+				if (tmp == NULL)
+					break ;
+				// if (check_chunk(tmp->index, chunk_size / 2, chunk_index))
+				// 	rotate_b(data, 1);
+				counter++;
+			}
+			if (counter == chunk_size)
+			{
+				counter = 0;
+				chunk_index++;
 			}
 			rotate_a(data, 1);
 			tmp = tmp->next;
 		}
-		tmp = data->a;
+		tmp = data->a; // check later
 	}
-	while (ps_lst_size(data->b) != 0)
-	{
-		push_to_a(data);
-	}
+	back_to_a(data);
 }
 
+int	index_distance(t_stack *stack, ssize_t index)
+{
+	ssize_t	i;
 
+	i = 0;
+	while (stack)
+	{
+		if (stack->index == index)
+			return (i);
+		stack = stack->next;
+		i++;
+	}
+	return (i);
+}
 
-// void	sort_100(t_data *data)
-// {
-// 	t_stack *stack;
+void	back_to_a(t_data *data)
+{
+	ssize_t	max_index;
 
-// 	stack = data->a;
-// 	while (data->a)
-// 	{
-// 		current = stack;
-// 		if (stack->num < )
-// 	}	
-// }
+	max_index = ps_lst_size(data->b) - 1;
+	while (ps_lst_size(data->b) != 0)
+	{
+		if (data->b->index == max_index)
+		{
+			push_to_a(data);
+			max_index--;
+		}
+		if (index_distance(data->b, max_index) < max_index / 2)
+			rotate_b(data, 1);
+		else
+			r_rotate_b(data, 1);
+	}
+}

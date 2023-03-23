@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
+/*   By: jebucoy <jebucoy@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/11 18:28:22 by jebucoy           #+#    #+#             */
-/*   Updated: 2023/03/16 15:11:28 by codespace        ###   ########.fr       */
+/*   Updated: 2023/03/23 17:49:46 by jebucoy          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,5 +59,9 @@ int		check_if_dup(t_stack *stack);
 void	sort_2(t_data *data);
 void	sort_3(t_data *data);
 void	get_index(t_data *data);
-void	sort_100(t_data *data);
+void	chunky_sort(t_data *data, ssize_t chunk_size);
+void	back_to_a(t_data *data);
+bool	check_chunk(ssize_t index, ssize_t chunk_size, ssize_t chunk_index);
+void	get_index(t_data *data);
+t_stack	*get_min(t_data *data);
 #endif
