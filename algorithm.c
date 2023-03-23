@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   algorithm.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
+/*   By: jebucoy <jebucoy@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/13 12:46:10 by jebucoy           #+#    #+#             */
-/*   Updated: 2023/03/16 15:50:21 by codespace        ###   ########.fr       */
+/*   Updated: 2023/03/21 14:37:59 by jebucoy          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	sort_3(t_data *data)
 	node_1 = data->a;
 	node_2 = data->a->next;
 	node_3 = data->a->next->next;
-	debug_ps(*data);
+	// debug_ps(*data);
 	if (node_1->num > node_2->num && node_1->num < node_3->num)
 		swap_a(data, 1);
 	else if (node_1->num > node_2->num && node_2->num > node_3->num)
@@ -83,6 +83,21 @@ void get_index(t_data *data)
 	}
 }
 
+void	check_chunk(t_data *data, ssize_t chunk_size)
+{
+	t_stack *stack;
+	t_stack	*store_top;
+	t_stack	*store_bottom;
+
+	stack = data->a;
+	if (stack->index <= chunk_size)
+	{
+		
+	}
+	
+		
+}
+
 void	sort_100(t_data *data)
 {
 	ssize_t	i;
@@ -103,6 +118,10 @@ void	sort_100(t_data *data)
 			tmp = tmp->next;
 		}
 		tmp = data->a;
+	}
+	while (ps_lst_size(data->b) != 0)
+	{
+		push_to_a(data);
 	}
 }
 
