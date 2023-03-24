@@ -6,7 +6,7 @@
 /*   By: jebucoy <jebucoy@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/13 12:46:10 by jebucoy           #+#    #+#             */
-/*   Updated: 2023/03/23 17:48:05 by jebucoy          ###   ########.fr       */
+/*   Updated: 2023/03/24 15:57:00 by jebucoy          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,23 @@ void	sort_3(t_data *data)
 	}
 	else if (node_1->num < node_2->num && node_1->num > node_3->num)
 		r_rotate_a(data, 1);
+}
+
+void	sort_4(t_data *data)
+{
+	t_stack *cur;
+	t_stack *min;
+
+	cur = data->a;
+	while (cur)
+	{
+		debug_ps(*data);
+		printf("current value: %zd\n", cur->index);
+		if (cur->index > data->a->next->index)
+			cur = cur->next;
+		min = cur;
+		printf("min value: %zd\n", min->index);
+	}
 }
 
 void	chunky_sort(t_data *data, ssize_t chunk_size)

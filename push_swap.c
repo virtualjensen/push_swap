@@ -6,7 +6,7 @@
 /*   By: jebucoy <jebucoy@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/11 18:59:34 by jebucoy           #+#    #+#             */
-/*   Updated: 2023/03/23 17:06:56 by jebucoy          ###   ########.fr       */
+/*   Updated: 2023/03/24 15:55:08 by jebucoy          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,8 @@ int	push_swap(char **av)
 			sort_2(data);
 		else if (ps_lst_size(data->a) == 3)
 			sort_3(data);
+		else if (ps_lst_size(data->a) == 4)
+			sort_4(data);
 		else if (ps_lst_size(data->a) <= 100)
 			chunky_sort(data, 11);
 		else
