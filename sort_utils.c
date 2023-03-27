@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sort_utils.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jebucoy <jebucoy@student.42.fr>            +#+  +:+       +#+        */
+/*   By: jebucoy <jebucoy@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/23 17:46:46 by jebucoy           #+#    #+#             */
-/*   Updated: 2023/03/23 17:47:28 by jebucoy          ###   ########.fr       */
+/*   Updated: 2023/03/27 18:39:24 by jebucoy          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,4 +55,19 @@ bool	check_chunk(ssize_t index, ssize_t chunk_size, ssize_t chunk_index)
 		&& index >= chunk_index * chunk_size)
 		return (true);
 	return (false);
+}
+
+int	index_distance(t_stack *stack, ssize_t index)
+{
+	ssize_t	i;
+
+	i = 0;
+	while (stack)
+	{
+		if (stack->index == index)
+			return (i);
+		stack = stack->next;
+		i++;
+	}
+	return (i);
 }

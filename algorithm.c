@@ -6,11 +6,12 @@
 /*   By: jebucoy <jebucoy@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/13 12:46:10 by jebucoy           #+#    #+#             */
-/*   Updated: 2023/03/27 17:42:34 by jebucoy          ###   ########.fr       */
+/*   Updated: 2023/03/27 18:40:05 by jebucoy          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
 void	sort_2(t_data *data)
 {
 	// if (ps_lst_size(data->a) == 2 && data->a->num > data->a->next->num)
@@ -132,21 +133,6 @@ void	chunky_sort(t_data *data, ssize_t chunk_size)
 		tmp = data->a; // check later
 	}
 	back_to_a(data);
-}
-
-int	index_distance(t_stack *stack, ssize_t index)
-{
-	ssize_t	i;
-
-	i = 0;
-	while (stack)
-	{
-		if (stack->index == index)
-			return (i);
-		stack = stack->next;
-		i++;
-	}
-	return (i);
 }
 
 void	back_to_a(t_data *data)
