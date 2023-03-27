@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jebucoy <jebucoy@student.42.fr>            +#+  +:+       +#+        */
+/*   By: jebucoy <jebucoy@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/11 18:28:22 by jebucoy           #+#    #+#             */
-/*   Updated: 2023/03/24 15:55:31 by jebucoy          ###   ########.fr       */
+/*   Updated: 2023/03/27 17:43:00 by jebucoy          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,11 +58,13 @@ int		check_if_sort(t_stack *stack);
 int		check_if_dup(t_stack *stack);
 void	sort_2(t_data *data);
 void	sort_3(t_data *data);
-void	sort_4(t_data *data);
+void	sort_4(t_data *data, ssize_t index);
+void	sort_5(t_data *data);
 void	get_index(t_data *data);
 void	chunky_sort(t_data *data, ssize_t chunk_size);
 void	back_to_a(t_data *data);
 bool	check_chunk(ssize_t index, ssize_t chunk_size, ssize_t chunk_index);
 void	get_index(t_data *data);
 t_stack	*get_min(t_data *data);
+int	index_distance(t_stack *stack, ssize_t index);
 #endif

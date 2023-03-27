@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   algorithm.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jebucoy <jebucoy@student.42.fr>            +#+  +:+       +#+        */
+/*   By: jebucoy <jebucoy@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/13 12:46:10 by jebucoy           #+#    #+#             */
-/*   Updated: 2023/03/24 15:57:00 by jebucoy          ###   ########.fr       */
+/*   Updated: 2023/03/27 17:42:34 by jebucoy          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,21 +45,57 @@ void	sort_3(t_data *data)
 		r_rotate_a(data, 1);
 }
 
-void	sort_4(t_data *data)
+void	move_conditions_4(t_data *data, ssize_t index)
 {
-	t_stack *cur;
-	t_stack *min;
-
-	cur = data->a;
-	while (cur)
+	if (index == 1)
+		swap_a(data, 1);
+	else if (index == 2)
 	{
-		debug_ps(*data);
-		printf("current value: %zd\n", cur->index);
-		if (cur->index > data->a->next->index)
-			cur = cur->next;
-		min = cur;
-		printf("min value: %zd\n", min->index);
+		r_rotate_a(data, 1);
+		r_rotate_a(data, 1);
 	}
+	else if (index == 3)
+		r_rotate_a(data, 1);
+	push_to_b(data);
+}
+
+void	move_conditions_5(t_data *data, ssize_t index)
+{
+	if (index == 1)
+		swap_a(data, 1);
+	else if (index == 2)
+	{
+		rotate_a(data, 1);
+		rotate_a(data, 1);
+	}
+	else if (index == 3)
+	{
+		r_rotate_a(data, 1);
+		r_rotate_a(data, 1);
+	}
+	else if (index == 4)
+		r_rotate_a(data, 1);
+	push_to_b(data);
+}
+
+void	sort_4(t_data *data, ssize_t index)
+{
+	ssize_t min_pos;
+
+	min_pos = index_distance(data->a, index);
+	move_conditions_4(data, min_pos);
+	sort_3(data);
+	push_to_a(data);
+}
+
+void	sort_5(t_data *data)
+{
+	ssize_t	min_pos;
+
+	min_pos = index_distance(data->a, 0);
+	move_conditions_5(data, min_pos);
+	sort_4(data, 1);
+	push_to_a(data);
 }
 
 void	chunky_sort(t_data *data, ssize_t chunk_size)
@@ -131,3 +167,5 @@ void	back_to_a(t_data *data)
 			r_rotate_b(data, 1);
 	}
 }
+
+
