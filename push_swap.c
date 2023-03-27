@@ -6,7 +6,7 @@
 /*   By: jebucoy <jebucoy@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/11 18:59:34 by jebucoy           #+#    #+#             */
-/*   Updated: 2023/03/27 17:49:53 by jebucoy          ###   ########.fr       */
+/*   Updated: 2023/03/27 18:14:29 by jebucoy          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int	parser(t_stack *stack, char **av)
 		|| (check_if_sort(stack) == true)
 		|| (check_if_dup(stack) == true))
 	{
-		ft_putendl_fd("ERROR", 2);
+		ft_putendl_fd("Error", 2);
 		return (false);
 	}
 	return (true);
@@ -65,7 +65,7 @@ int	push_swap(char **av)
 
 int	main(int ac, char **av)
 {
-	if (ac == 1)
+	if (ac < 3)
 		return (0);
 	push_swap(av);
 	return (0);
