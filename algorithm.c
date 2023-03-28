@@ -6,7 +6,7 @@
 /*   By: jebucoy <jebucoy@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/13 12:46:10 by jebucoy           #+#    #+#             */
-/*   Updated: 2023/03/28 15:48:47 by jebucoy          ###   ########.fr       */
+/*   Updated: 2023/03/28 16:53:50 by jebucoy          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -129,6 +129,7 @@ void	chunky_sort(t_data *data, ssize_t chunk_size)
 	counter = 0;
 	while (ps_lst_size(data->a) != 0)
 	{
+		printf("chunk_index: %zd\n",data->a->index);
 		if (check_chunk(data->a->index, chunk_size, chunk_index))
 		{
 			push_to_b(data);
