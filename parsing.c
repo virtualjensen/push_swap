@@ -3,17 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   parsing.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
+/*   By: jebucoy <jebucoy@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/12 14:50:07 by jebucoy           #+#    #+#             */
-/*   Updated: 2023/03/16 15:50:54 by codespace        ###   ########.fr       */
+/*   Updated: 2023/03/28 13:09:22 by jebucoy          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
 //checks for non-integers in the argument, if there is, return true
-int	check_invalid_arg(char **av)
+bool	check_invalid_arg(char **av)
 {
 	int	s;
 	int	c;
@@ -38,7 +38,7 @@ int	check_invalid_arg(char **av)
 }
 
 //checks if args are pre-sorted, if sorted, returns true
-int	check_if_sort(t_stack *stack)
+bool	check_if_sort(t_stack *stack)
 {
 	t_stack *cur;
 
@@ -55,7 +55,7 @@ int	check_if_sort(t_stack *stack)
 }
 
 //checks for duplicates. if there are, return true
-int	check_if_dup(t_stack *stack)
+bool	check_if_dup(t_stack *stack)
 {
 	t_stack	*head;
 	t_stack	*tmp;

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   algorithm.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jebucoy <jebucoy@student.42abudhabi.ae>    +#+  +:+       +#+        */
+/*   By: jebucoy <jebucoy@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/13 12:46:10 by jebucoy           #+#    #+#             */
-/*   Updated: 2023/03/27 18:40:05 by jebucoy          ###   ########.fr       */
+/*   Updated: 2023/03/28 15:48:47 by jebucoy          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,21 +28,22 @@ void	sort_3(t_data *data)
 	node_2 = data->a->next;
 	node_3 = data->a->next->next;
 	// debug_ps(*data);
-	if (node_1->num > node_2->num && node_1->num < node_3->num)
+	if (node_1->index > node_2->index && node_1->index < node_3->index)
 		swap_a(data, 1);
-	else if (node_1->num > node_2->num && node_2->num > node_3->num)
+	else if (node_1->index > node_2->index && node_2->index > node_3->index)
 	{
 		rotate_a(data, 1);
 		swap_a(data, 1);
 	}
-	else if (node_1->num > node_3->num && node_2->num < node_3->num)
+	else if (node_1->index > node_3->index && node_2->index < node_3->index)
 		rotate_a(data, 1);
-	else if (node_1->num < node_2->num && node_1->num < node_3->num)
+	else if (node_1->index < node_2->index && node_1->index < node_3->index
+			&& node_2->index > node_3->index)
 	{
 		swap_a(data, 1);
 		rotate_a(data, 1);
 	}
-	else if (node_1->num < node_2->num && node_1->num > node_3->num)
+	else if (node_1->index < node_2->index && node_1->index > node_3->index)
 		r_rotate_a(data, 1);
 }
 
@@ -99,38 +100,51 @@ void	sort_5(t_data *data)
 	push_to_a(data);
 }
 
+bool	chunk_distance(t_stack *stack, ssize_t chunk_size, ssize_t chunk_index)
+{
+	ssize_t store;
+	ssize_t chunk_start;
+	ssize_t chunk_end;
+
+	store = INT_MAX;
+	chunk_start = chunk_index * chunk_size;
+	chunk_end = chunk_size * (chunk_index + 1);
+	while (chunk_start < chunk_end)
+	{
+		if (index_distance(stack, chunk_start) < store)
+			store = index_distance(stack, chunk_start);
+		chunk_start++;
+	}
+	if (store < ps_lst_size(stack) / 2)
+		return (false);
+	return (true);
+}
+
 void	chunky_sort(t_data *data, ssize_t chunk_size)
 {
 	ssize_t chunk_index;
 	ssize_t counter;
-	t_stack *tmp;
 
 	chunk_index = 0;
-	tmp = data->a;
 	counter = 0;
-	while (ps_lst_size(tmp) != 0)
+	while (ps_lst_size(data->a) != 0)
 	{
-		while (tmp)
+		if (check_chunk(data->a->index, chunk_size, chunk_index))
 		{
-			if (check_chunk(tmp->index, chunk_size, chunk_index))
-			{
-				push_to_b(data);
-				tmp = data->a;
-				if (tmp == NULL)
-					break ;
-				// if (check_chunk(tmp->index, chunk_size / 2, chunk_index))
-				// 	rotate_b(data, 1);
-				counter++;
-			}
-			if (counter == chunk_size)
-			{
-				counter = 0;
-				chunk_index++;
-			}
-			rotate_a(data, 1);
-			tmp = tmp->next;
+			push_to_b(data);
+			// if (check_chunk(data->b->index, chunk_size / 2, chunk_index))
+			// 	rotate_b(data, 1);
+			counter++;
 		}
-		tmp = data->a; // check later
+		if (counter == chunk_size)
+		{
+			counter = 0;
+			chunk_index++;
+		}
+		if (chunk_distance(data->a, chunk_size, chunk_index) == false)
+			rotate_a(data, 1);
+		else
+			r_rotate_a(data, 1);
 	}
 	back_to_a(data);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jebucoy <jebucoy@student.42abudhabi.ae>    +#+  +:+       +#+        */
+/*   By: jebucoy <jebucoy@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/11 18:59:34 by jebucoy           #+#    #+#             */
-/*   Updated: 2023/03/27 18:14:29 by jebucoy          ###   ########.fr       */
+/*   Updated: 2023/03/28 16:03:06 by jebucoy          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,6 @@ int	push_swap(char **av)
 	data = init_struct(av);
 	if (parser(data->a, av) == true)
 	{
-	// debug_ps(*data);
 		get_index(data);
 		if (ps_lst_size(data->a) == 2)
 			sort_2(data);
@@ -52,11 +51,10 @@ int	push_swap(char **av)
 		else if (ps_lst_size(data->a) == 5)
 			sort_5(data);
 		else if (ps_lst_size(data->a) <= 100)
-			chunky_sort(data, 27);
+			chunky_sort(data, 30); //16
 		else
-			chunky_sort(data, 51);
+			chunky_sort(data, 50);
 	}
-	// debug_ps(*data);
 	free_stack(data->a);
 	free_stack(data->b);
 	free(data);

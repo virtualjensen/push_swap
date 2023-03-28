@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sort_utils.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jebucoy <jebucoy@student.42abudhabi.ae>    +#+  +:+       +#+        */
+/*   By: jebucoy <jebucoy@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/23 17:46:46 by jebucoy           #+#    #+#             */
-/*   Updated: 2023/03/27 18:39:24 by jebucoy          ###   ########.fr       */
+/*   Updated: 2023/03/28 15:18:09 by jebucoy          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,10 @@ void	get_index(t_data *data)
 
 bool	check_chunk(ssize_t index, ssize_t chunk_size, ssize_t chunk_index)
 {
+	// printf("%zd\n", chunk_size * (chunk_index));
+	// printf("%zd\n", chunk_size * (chunk_index + 1));
+	// printf("%zd\n", index);
+	// printf("\n");
 	if (index < chunk_size * (chunk_index + 1)
 		&& index >= chunk_index * chunk_size)
 		return (true);
