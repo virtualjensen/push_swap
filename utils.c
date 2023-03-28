@@ -6,7 +6,7 @@
 /*   By: jebucoy <jebucoy@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/25 18:05:21 by jebucoy           #+#    #+#             */
-/*   Updated: 2023/02/25 18:40:23 by jebucoy          ###   ########.fr       */
+/*   Updated: 2023/03/28 21:36:09 by jebucoy          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,5 +66,5 @@ ssize_t	ps_lst_size(t_stack *stack)
 		stack = stack->next;
 		i++;
 	}
-	return (i);	
+	return (i);
 }

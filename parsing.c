@@ -6,7 +6,7 @@
 /*   By: jebucoy <jebucoy@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/12 14:50:07 by jebucoy           #+#    #+#             */
-/*   Updated: 2023/03/28 13:09:22 by jebucoy          ###   ########.fr       */
+/*   Updated: 2023/03/28 21:35:45 by jebucoy          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ bool	check_invalid_arg(char **av)
 //checks if args are pre-sorted, if sorted, returns true
 bool	check_if_sort(t_stack *stack)
 {
-	t_stack *cur;
+	t_stack	*cur;
 
 	cur = stack;
 	if (!stack)
@@ -66,10 +66,8 @@ bool	check_if_dup(t_stack *stack)
 	while (head)
 	{
 		tmp = head->next;
-		while(tmp)
+		while (tmp)
 		{
-			// printf("head: %zd ", head->num);
-			// printf("head->next: %zd\n", head->next->num);
 			if (head->num == tmp->num)
 			{
 				return (true);

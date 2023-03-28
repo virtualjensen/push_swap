@@ -6,7 +6,7 @@
 /*   By: jebucoy <jebucoy@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/23 17:46:46 by jebucoy           #+#    #+#             */
-/*   Updated: 2023/03/28 16:50:28 by jebucoy          ###   ########.fr       */
+/*   Updated: 2023/03/28 18:26:50 by jebucoy          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,10 +51,6 @@ void	get_index(t_data *data)
 
 bool	check_chunk(ssize_t index, ssize_t chunk_size, ssize_t chunk_index)
 {
-	printf("min:%zd\n", chunk_size * (chunk_index));
-	printf("max:%zd\n", chunk_size * (chunk_index + 1));
-	printf("%zd\n", index);
-	// printf("\n");
 	if (index < chunk_size * (chunk_index + 1)
 		&& index >= chunk_index * chunk_size)
 		return (true);

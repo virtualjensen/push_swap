@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init_push_swap.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jebucoy <jebucoy@student.42abudhabi.ae>    +#+  +:+       +#+        */
+/*   By: jebucoy <jebucoy@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 22:22:25 by jebucoy           #+#    #+#             */
-/*   Updated: 2023/03/17 11:55:28 by jebucoy          ###   ########.fr       */
+/*   Updated: 2023/03/28 21:36:41 by jebucoy          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,11 @@ static t_stack	*create_new_node(char *nbr)
 	new = (t_stack *)malloc(sizeof(t_stack));
 	if (!new)
 		return (NULL);
-	new->index = -1;	//index initialized value is -1 so that min value would be set as index[0]
+	new->index = -1;
 	new->num = ps_atoss(nbr);
 	if (new->num > INT_MAX || new->num < INT_MIN)
 	{
-		printf("ERROR int min/int max\n");
+		printf("Error\n");
 		exit(EXIT_FAILURE);
 	}
 	new->next = NULL;
@@ -91,9 +91,7 @@ t_data	*init_struct(char **nbrs)
 	{
 		split_arg = ft_split(nbrs[i], ' ');
 		if (i > 1)
-		{
 			ps_lstlast(data->a)->next = init_stack_a(split_arg);
-		}
 		else
 		{
 			data->a = init_stack_a(split_arg);
