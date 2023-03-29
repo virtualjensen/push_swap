@@ -6,7 +6,7 @@
 /*   By: jebucoy <jebucoy@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/23 17:46:46 by jebucoy           #+#    #+#             */
-/*   Updated: 2023/03/28 18:26:50 by jebucoy          ###   ########.fr       */
+/*   Updated: 2023/03/29 15:59:52 by jebucoy          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,4 +70,24 @@ int	index_distance(t_stack *stack, ssize_t index)
 		i++;
 	}
 	return (i);
+}
+
+bool	chunk_distance(t_stack *stack, ssize_t chunk_size, ssize_t chunk_index)
+{
+	ssize_t	store;
+	ssize_t	chunk_start;
+	ssize_t	chunk_end;
+
+	store = INT_MAX;
+	chunk_start = chunk_index * chunk_size;
+	chunk_end = chunk_size * (chunk_index + 1);
+	while (chunk_start < chunk_end)
+	{
+		if (index_distance(stack, chunk_start) < store)
+			store = index_distance(stack, chunk_start);
+		chunk_start++;
+	}
+	if (store < ps_lst_size(stack) / 2)
+		return (false);
+	return (true);
 }

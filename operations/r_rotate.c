@@ -6,11 +6,11 @@
 /*   By: jebucoy <jebucoy@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/19 17:48:55 by jebucoy           #+#    #+#             */
-/*   Updated: 2023/02/19 21:36:24 by jebucoy          ###   ########.fr       */
+/*   Updated: 2023/03/29 16:34:59 by jebucoy          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "push_swap.h"
 
 t_stack	*lst_b4last(t_stack *stack)
 {

@@ -6,11 +6,11 @@
 /*   By: jebucoy <jebucoy@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/13 17:59:49 by jebucoy           #+#    #+#             */
-/*   Updated: 2023/02/25 17:54:06 by jebucoy          ###   ########.fr       */
+/*   Updated: 2023/03/29 16:32:33 by jebucoy          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "push_swap.h"
 
 //swap the first 2 elements of stack A
 void	swap_a(t_data *data, int flag)

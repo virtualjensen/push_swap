@@ -6,11 +6,11 @@
 /*   By: jebucoy <jebucoy@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/19 17:35:04 by jebucoy           #+#    #+#             */
-/*   Updated: 2023/02/25 18:40:15 by jebucoy          ###   ########.fr       */
+/*   Updated: 2023/03/29 16:32:28 by jebucoy          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "push_swap.h"
 
 //shift up all of elements in stack A by one, first element will be last.
 void	rotate_a(t_data *data, int flag)

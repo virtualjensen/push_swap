@@ -6,117 +6,11 @@
 /*   By: jebucoy <jebucoy@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/13 12:46:10 by jebucoy           #+#    #+#             */
-/*   Updated: 2023/03/28 21:38:02 by jebucoy          ###   ########.fr       */
+/*   Updated: 2023/03/29 16:01:40 by jebucoy          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-void	sort_2(t_data *data)
-{
-	swap_a(data, 1);
-}
-
-void	sort_3(t_data *data)
-{
-	t_stack	*node_1;
-	t_stack	*node_2;
-	t_stack	*node_3;
-
-	node_1 = data->a;
-	node_2 = data->a->next;
-	node_3 = data->a->next->next;
-	if (node_1->index > node_2->index && node_1->index < node_3->index)
-		swap_a(data, 1);
-	else if (node_1->index > node_2->index && node_2->index > node_3->index)
-	{
-		rotate_a(data, 1);
-		swap_a(data, 1);
-	}
-	else if (node_1->index > node_3->index && node_2->index < node_3->index)
-		rotate_a(data, 1);
-	else if (node_1->index < node_2->index && node_1->index < node_3->index
-		&& node_2->index > node_3->index)
-	{
-		swap_a(data, 1);
-		rotate_a(data, 1);
-	}
-	else if (node_1->index < node_2->index && node_1->index > node_3->index)
-		r_rotate_a(data, 1);
-}
-
-void	move_conditions_4(t_data *data, ssize_t index)
-{
-	if (index == 1)
-		swap_a(data, 1);
-	else if (index == 2)
-	{
-		r_rotate_a(data, 1);
-		r_rotate_a(data, 1);
-	}
-	else if (index == 3)
-		r_rotate_a(data, 1);
-	push_to_b(data);
-}
-
-void	move_conditions_5(t_data *data, ssize_t index)
-{
-	if (index == 1)
-		swap_a(data, 1);
-	else if (index == 2)
-	{
-		rotate_a(data, 1);
-		rotate_a(data, 1);
-	}
-	else if (index == 3)
-	{
-		r_rotate_a(data, 1);
-		r_rotate_a(data, 1);
-	}
-	else if (index == 4)
-		r_rotate_a(data, 1);
-	push_to_b(data);
-}
-
-void	sort_4(t_data *data, ssize_t index)
-{
-	ssize_t	min_pos;
-
-	min_pos = index_distance(data->a, index);
-	move_conditions_4(data, min_pos);
-	sort_3(data);
-	push_to_a(data);
-}
-
-void	sort_5(t_data *data)
-{
-	ssize_t	min_pos;
-
-	min_pos = index_distance(data->a, 0);
-	move_conditions_5(data, min_pos);
-	sort_4(data, 1);
-	push_to_a(data);
-}
-
-bool	chunk_distance(t_stack *stack, ssize_t chunk_size, ssize_t chunk_index)
-{
-	ssize_t	store;
-	ssize_t	chunk_start;
-	ssize_t	chunk_end;
-
-	store = INT_MAX;
-	chunk_start = chunk_index * chunk_size;
-	chunk_end = chunk_size * (chunk_index + 1);
-	while (chunk_start < chunk_end)
-	{
-		if (index_distance(stack, chunk_start) < store)
-			store = index_distance(stack, chunk_start);
-		chunk_start++;
-	}
-	if (store < ps_lst_size(stack) / 2)
-		return (false);
-	return (true);
-}
 
 void	chunky_sort(t_data *data, ssize_t chunk_size)
 {
@@ -144,7 +38,7 @@ void	chunky_sort(t_data *data, ssize_t chunk_size)
 	back_to_a(data);
 }
 
-ssize_t get_least_distance(t_stack *stack, ssize_t dist1, ssize_t dist2)
+ssize_t	get_least_distance(t_stack *stack, ssize_t dist1, ssize_t dist2)
 {
 	ssize_t	rev_dist1;
 	ssize_t	rev_dist2;
@@ -163,6 +57,7 @@ ssize_t get_least_distance(t_stack *stack, ssize_t dist1, ssize_t dist2)
 	else
 		return (4);
 }
+
 void	push_index(t_data *data, ssize_t index, bool flag)
 {
 	while (data->b->index != index)
@@ -209,5 +104,3 @@ void	back_to_a(t_data *data)
 	}
 	push_to_a(data);
 }
-
-

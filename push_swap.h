@@ -6,7 +6,7 @@
 /*   By: jebucoy <jebucoy@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/11 18:28:22 by jebucoy           #+#    #+#             */
-/*   Updated: 2023/03/28 13:09:35 by jebucoy          ###   ########.fr       */
+/*   Updated: 2023/03/29 16:07:09 by jebucoy          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@
 # include <stdio.h>
 # include <stdlib.h>
 # include <stdbool.h>
-
 
 typedef struct s_stack
 {
@@ -36,7 +35,6 @@ typedef struct s_data
 }	t_data;
 
 t_data	*init_struct(char **nbrs);
-void	debug_ps(t_data data);
 void	swap_a(t_data *data, int flag);
 void	swap_b(t_data *data, int flag);
 void	sa_sb(t_data *data);
@@ -48,14 +46,11 @@ void	rotate_b(t_data *data, int flag);
 void	ra_rb(t_data *data);
 void	r_rotate_a(t_data *data, int flag);
 void	r_rotate_b(t_data *data, int flag);
-t_stack	*lst_b4last(t_stack *stack);
 void	rrr(t_data *data);
+t_stack	*lst_b4last(t_stack *stack);
 void	free_stack(t_stack *stack);
-bool		check_invalid_arg(char **av);
 ssize_t	ps_atoss(const char *str);
 ssize_t	ps_lst_size(t_stack *stack);
-bool		check_if_sort(t_stack *stack);
-bool		check_if_dup(t_stack *stack);
 void	sort_2(t_data *data);
 void	sort_3(t_data *data);
 void	sort_4(t_data *data, ssize_t index);
@@ -63,8 +58,12 @@ void	sort_5(t_data *data);
 void	get_index(t_data *data);
 void	chunky_sort(t_data *data, ssize_t chunk_size);
 void	back_to_a(t_data *data);
-bool	check_chunk(ssize_t index, ssize_t chunk_size, ssize_t chunk_index);
 void	get_index(t_data *data);
 t_stack	*get_min(t_data *data);
-int	index_distance(t_stack *stack, ssize_t index);
+int		index_distance(t_stack *stack, ssize_t index);
+bool	chunk_distance(t_stack *stack, ssize_t chunk_size, ssize_t chunk_index);
+bool	check_invalid_arg(char **av);
+bool	check_if_sort(t_stack *stack);
+bool	check_if_dup(t_stack *stack);
+bool	check_chunk(ssize_t index, ssize_t chunk_size, ssize_t chunk_index);
 #endif

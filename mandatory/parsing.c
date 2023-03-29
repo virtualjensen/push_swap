@@ -6,7 +6,7 @@
 /*   By: jebucoy <jebucoy@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/12 14:50:07 by jebucoy           #+#    #+#             */
-/*   Updated: 2023/03/28 21:35:45 by jebucoy          ###   ########.fr       */
+/*   Updated: 2023/03/29 15:57:45 by jebucoy          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,4 +78,3 @@ bool	check_if_dup(t_stack *stack)
 	}
 	return (false);
 }
-

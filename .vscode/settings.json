@@ -6,6 +6,7 @@
 		"iterator": "c",
 		"string": "c",
 		"string_view": "c",
-		"vector": "c"
+		"vector": "c",
+		"push_swap.h": "c"
 	}
 }
