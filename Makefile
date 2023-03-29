@@ -6,7 +6,7 @@
 #    By: jebucoy <jebucoy@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/13 16:18:55 by jebucoy           #+#    #+#              #
-#    Updated: 2023/03/29 16:37:46 by jebucoy          ###   ########.fr        #
+#    Updated: 2023/03/29 17:51:54 by jebucoy          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,6 +17,7 @@ CFLAGS	=	-Wall -Wextra -Werror -g -fsanitize=address -I .
 CC		=	cc
 
 SRCS	=	push_swap.c \
+			debug.c \
 			./mandatory/init_push_swap.c \
 			./mandatory/parsing.c \
 			./mandatory/utils.c \

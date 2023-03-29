@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   algorithm.c                                        :+:      :+:    :+:   */
+/*   chunk_algorithm.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jebucoy <jebucoy@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/13 12:46:10 by jebucoy           #+#    #+#             */
-/*   Updated: 2023/03/29 16:01:40 by jebucoy          ###   ########.fr       */
+/*   Updated: 2023/03/29 17:58:05 by jebucoy          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,7 +88,7 @@ void	back_to_a(t_data *data)
 	ssize_t	distance_2;
 
 	max_index = ps_lst_size(data->b) - 1;
-	while (ps_lst_size(data->b) != 1)
+	while (ps_lst_size(data->b) > 1)
 	{
 		distance_1 = index_distance(data->b, max_index);
 		distance_2 = index_distance(data->b, max_index - 1);
@@ -102,5 +102,6 @@ void	back_to_a(t_data *data)
 			push_2_indices(data, &max_index, false);
 		max_index--;
 	}
-	push_to_a(data);
+	if (ps_lst_size(data->b) == 1)
+		push_to_a(data);
 }

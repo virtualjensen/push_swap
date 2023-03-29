@@ -6,7 +6,7 @@
 /*   By: jebucoy <jebucoy@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/11 18:28:22 by jebucoy           #+#    #+#             */
-/*   Updated: 2023/03/29 16:07:09 by jebucoy          ###   ########.fr       */
+/*   Updated: 2023/03/29 17:52:45 by jebucoy          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,4 +66,6 @@ bool	check_invalid_arg(char **av);
 bool	check_if_sort(t_stack *stack);
 bool	check_if_dup(t_stack *stack);
 bool	check_chunk(ssize_t index, ssize_t chunk_size, ssize_t chunk_index);
+void	debug_ps(t_data data);
+
 #endif
