@@ -20,7 +20,7 @@ t_stack	*get_min(t_data *data)
 
 	stack = data->a;
 	current = stack;
-	min_num = INT_MAX;
+	min_num = 2147483648;
 	while (stack)
 	{
 		if (stack->num < min_num && stack->index == -1)

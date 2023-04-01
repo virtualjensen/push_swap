@@ -12,7 +12,7 @@
 
 NAME	=	push_swap
 
-CFLAGS	=	-Wall -Wextra -Werror -g -fsanitize=address -I .
+CFLAGS	=	-Wall -Wextra -Werror -g -I .
 
 CC		=	cc
 

@@ -12,20 +12,9 @@
 
 #include "push_swap.h"
 
-int	ft_strcmp(const char *s1, const char *s2)
+int	parser(t_stack *stack)
 {
-	int	i;
-
-	i = 0;
-	while (s1[i] == s2[i] && s1[i] != '\0' && s2[i] != '\0')
-		i++;
-	return ((unsigned char)s1[i] - (unsigned char)s2[i]);
-}
-
-int	parser(t_stack *stack, char **av)
-{
-	if ((check_invalid_arg(av) == true)
-		|| (check_if_dup(stack) == true))
+	if ((check_if_dup(stack) == true))
 	{
 		ft_putendl_fd("Error", 2);
 		return (false);
@@ -40,7 +29,7 @@ int	push_swap(char **av)
 	t_data	*data;
 
 	data = init_struct(av);
-	if (parser(data->a, av) == true)
+	if (parser(data->a) == true)
 	{
 		get_index(data);
 		if (ps_lst_size(data->a) == 2)
@@ -64,7 +53,7 @@ int	push_swap(char **av)
 
 int	main(int ac, char **av)
 {
-	if (ac < 3)
+	if (ac < 2)
 		return (0);
 	push_swap(av);
 	return (0);

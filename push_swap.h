@@ -65,6 +65,7 @@ bool	chunk_distance(t_stack *stack, ssize_t chunk_size, ssize_t chunk_index);
 bool	check_invalid_arg(char **av);
 bool	check_if_sort(t_stack *stack);
 bool	check_if_dup(t_stack *stack);
+bool	verify_num(char **av);
 bool	check_chunk(ssize_t index, ssize_t chunk_size, ssize_t chunk_index);
 void	debug_ps(t_data data);
 

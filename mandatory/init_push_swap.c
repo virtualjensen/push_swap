@@ -24,8 +24,9 @@ static t_stack	*create_new_node(char *nbr)
 	new->num = ps_atoss(nbr);
 	if (new->num > INT_MAX || new->num < INT_MIN)
 	{
-		printf("Error\n");
-		exit(EXIT_FAILURE);
+		free(new);
+		ft_putendl_fd("Error", 2);
+		return (NULL);
 	}
 	new->next = NULL;
 	return (new);
@@ -45,7 +46,7 @@ void	free_2d(char **av)
 }
 
 //returns the first node/ sets the value for the next nodes
-static t_stack	*init_stack_a(char **nbrs)
+static t_stack	*init_stack_a(char **nbrs, t_data *data)
 {
 	int		i;
 	t_stack	*current;
@@ -53,10 +54,24 @@ static t_stack	*init_stack_a(char **nbrs)
 
 	i = 0;
 	current = create_new_node(nbrs[i]);
+	if (current == NULL)
+	{	
+		free_2d(nbrs);
+		free_stack(data->a);
+		free(data);
+		exit(0);
+	}
 	head = current;
 	while (nbrs[++i])
 	{
 		current->next = create_new_node(nbrs[i]);
+		if (current->next == NULL)
+		{
+			free_2d(nbrs);
+			free_stack(current);
+			free(data);
+			exit(0);
+		}
 		current = current->next;
 	}
 	return (head);
@@ -84,17 +99,25 @@ t_data	*init_struct(char **nbrs)
 	int		i;
 
 	i = 1;
-	data = (t_data *)malloc(sizeof(t_data));
+	data = (t_data *)ft_calloc(sizeof(t_data), 1);
 	if (!data)
 		return (NULL);
 	while (nbrs[i])
 	{
 		split_arg = ft_split(nbrs[i], ' ');
+		if (split_arg[0] == NULL || !verify_num(split_arg) || (check_invalid_arg(split_arg)))
+		{
+			ft_putendl_fd("Error", 2);
+			free_2d(split_arg);
+			free_stack(data->a);
+			free(data);
+			exit(0);
+		}
 		if (i > 1)
-			ps_lstlast(data->a)->next = init_stack_a(split_arg);
+			ps_lstlast(data->a)->next = init_stack_a(split_arg, data);
 		else
 		{
-			data->a = init_stack_a(split_arg);
+			data->a = init_stack_a(split_arg, data);
 			data->head_a = data->a;
 		}
 		free_2d(split_arg);

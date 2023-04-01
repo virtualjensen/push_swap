@@ -12,21 +12,47 @@
 
 #include "push_swap.h"
 
+bool	verify_num(char **av)
+{
+	int	s;
+	int	c;
+
+	s = 0;
+	while (av[s])
+	{
+		c = 1;
+		if ((av[s][0] != '-' && !ft_isdigit(av[s][0]))
+			|| (av[s][0] == '-' && !ft_isdigit(av[s][1])))
+			return(false);
+		while (av[s][c])
+		{
+			if(!ft_isdigit(av[s][c]))
+				return (false);			
+			c++;
+		}
+		s++;
+	}
+	return (true);
+}
+
 //checks for non-integers in the argument, if there is, return true
 bool	check_invalid_arg(char **av)
 {
 	int	s;
 	int	c;
 
-	s = 1;
+	s = 0;
 	c = 0;
+	if (!verify_num(av))
+		return (true);
 	while (av[s])
 	{
 		c = 0;
+		if (av[s][c] == '\0')
+			return (true);
 		while (av[s][c])
 		{
-			if ((!ft_isdigit(av[s][c]) && av[s][c] != ' ' && av[s][c] != '-')
-				|| (av[s][c] == '-' && !ft_isdigit(av[s][c + 1])))
+			if ((!ft_isdigit(av[s][c]) && av[s][c] != ' ' && av[s][c] != '-'))
 			{
 				return (true);
 			}
