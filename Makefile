@@ -6,7 +6,7 @@
 #    By: jebucoy <jebucoy@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/13 16:18:55 by jebucoy           #+#    #+#              #
-#    Updated: 2023/03/29 17:51:54 by jebucoy          ###   ########.fr        #
+#    Updated: 2023/04/01 19:47:54 by jebucoy          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,6 @@ CFLAGS	=	-Wall -Wextra -Werror -g -fsanitize=address -I .
 CC		=	cc
 
 SRCS	=	push_swap.c \
-			debug.c \
 			./mandatory/init_push_swap.c \
 			./mandatory/parsing.c \
 			./mandatory/utils.c \
@@ -30,11 +29,11 @@ SRCS	=	push_swap.c \
 
 OBJS	=	$(SRCS:.c=.o)
 
-all	: $(OBJS)
-	make -C ./libft
-	$(CC) $(CFLAGS) $(OBJS) ./libft/libft.a -o $(NAME)
+$(NAME)	: $(OBJS)
+		make -C ./libft
+		$(CC) $(CFLAGS) $(OBJS) ./libft/libft.a -o $(NAME)
 
-$(NAME)	: all
+all	: $(NAME)
 
 clean	:
 		rm -rf $(OBJS) 
