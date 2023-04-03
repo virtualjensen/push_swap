@@ -6,7 +6,7 @@
 /*   By: jebucoy <jebucoy@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/12 14:50:07 by jebucoy           #+#    #+#             */
-/*   Updated: 2023/03/29 15:57:45 by jebucoy          ###   ########.fr       */
+/*   Updated: 2023/04/03 16:28:13 by jebucoy          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,11 +23,11 @@ bool	verify_num(char **av)
 		c = 1;
 		if ((av[s][0] != '-' && !ft_isdigit(av[s][0]))
 			|| (av[s][0] == '-' && !ft_isdigit(av[s][1])))
-			return(false);
+			return (false);
 		while (av[s][c])
 		{
-			if(!ft_isdigit(av[s][c]))
-				return (false);			
+			if (!ft_isdigit(av[s][c]))
+				return (false);
 			c++;
 		}
 		s++;

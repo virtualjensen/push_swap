@@ -6,7 +6,7 @@
 /*   By: jebucoy <jebucoy@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 22:22:25 by jebucoy           #+#    #+#             */
-/*   Updated: 2023/03/28 21:36:41 by jebucoy          ###   ########.fr       */
+/*   Updated: 2023/04/03 16:29:17 by jebucoy          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,19 +32,6 @@ static t_stack	*create_new_node(char *nbr)
 	return (new);
 }
 
-void	free_2d(char **av)
-{
-	size_t	i;
-
-	i = 0;
-	while (av[i])
-	{
-		free(av[i]);
-		i++;
-	}
-	free(av);
-}
-
 //returns the first node/ sets the value for the next nodes
 static t_stack	*init_stack_a(char **nbrs, t_data *data)
 {
@@ -55,40 +42,16 @@ static t_stack	*init_stack_a(char **nbrs, t_data *data)
 	i = 0;
 	current = create_new_node(nbrs[i]);
 	if (current == NULL)
-	{	
-		free_2d(nbrs);
-		free_stack(data->a);
-		free(data);
-		exit(0);
-	}
+		free_stack_a(nbrs, data->a, data);
 	head = current;
 	while (nbrs[++i])
 	{
 		current->next = create_new_node(nbrs[i]);
 		if (current->next == NULL)
-		{
-			free_2d(nbrs);
-			free_stack(current);
-			free(data);
-			exit(0);
-		}
+			free_stack_a(nbrs, current, data);
 		current = current->next;
 	}
 	return (head);
-}
-
-void	free_stack(t_stack *stack)
-{
-	t_stack	*tmp;
-
-	if (!stack)
-		return ;
-	while (stack)
-	{
-		tmp = stack;
-		stack = stack->next;
-		free(tmp);
-	}
 }
 
 //initialize the structures
@@ -105,16 +68,9 @@ t_data	*init_struct(char **nbrs)
 	while (nbrs[i])
 	{
 		split_arg = ft_split(nbrs[i], ' ');
-		if (split_arg[0] == NULL || !verify_num(split_arg) || (check_invalid_arg(split_arg)))
-		{
-			ft_putendl_fd("Error", 2);
-			free_2d(split_arg);
-			free_stack(data->a);
-			free(data);
-			exit(0);
-		}
+		check_split(split_arg, data);
 		if (i > 1)
-			ps_lstlast(data->a)->next = init_stack_a(split_arg, data);
+			ps_lstadd_back(data->a, init_stack_a(split_arg, data));
 		else
 		{
 			data->a = init_stack_a(split_arg, data);

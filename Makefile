@@ -6,7 +6,7 @@
 #    By: jebucoy <jebucoy@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/13 16:18:55 by jebucoy           #+#    #+#              #
-#    Updated: 2023/04/01 19:47:54 by jebucoy          ###   ########.fr        #
+#    Updated: 2023/04/03 16:30:53 by jebucoy          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,6 +23,7 @@ SRCS	=	push_swap.c \
 			./mandatory/chunk_algorithm.c \
 			./mandatory/sort_small_nums.c \
 			./mandatory/sort_utils.c \
+			./mandatory/ps_frees.c \
 			operations/swap_push.c \
 			operations/rotate.c \
 			operations/r_rotate.c \

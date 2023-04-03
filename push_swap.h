@@ -6,7 +6,7 @@
 /*   By: jebucoy <jebucoy@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/11 18:28:22 by jebucoy           #+#    #+#             */
-/*   Updated: 2023/03/29 17:52:45 by jebucoy          ###   ########.fr       */
+/*   Updated: 2023/04/03 16:30:16 by jebucoy          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,8 @@ void	r_rotate_b(t_data *data, int flag);
 void	rrr(t_data *data);
 t_stack	*lst_b4last(t_stack *stack);
 void	free_stack(t_stack *stack);
+void	free_stack_a(char **nbrs, t_stack *stack, t_data *data);
+void	free_2d(char **av);
 ssize_t	ps_atoss(const char *str);
 ssize_t	ps_lst_size(t_stack *stack);
 void	sort_2(t_data *data);
@@ -68,5 +70,7 @@ bool	check_if_dup(t_stack *stack);
 bool	verify_num(char **av);
 bool	check_chunk(ssize_t index, ssize_t chunk_size, ssize_t chunk_index);
 void	debug_ps(t_data data);
+void	check_split(char **split_arg, t_data *data);
+void	ps_lstadd_back(t_stack *stack, t_stack *new);
 
 #endif
